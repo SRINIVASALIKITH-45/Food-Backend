@@ -31,7 +31,18 @@ io.on('connection', (socket) => {
 });
 
 // Middlewares
-app.use(cors());
+// WITH THIS
+app.use(cors({
+    origin: [
+        'http://localhost:5173',
+        'https://week789654.vercel.app',
+        'https://week-bsah.vercel.app',
+        'https://week-hm1x-hr9rmj9h7-likithmangapuram-gmailcoms-projects.vercel.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 // ... rest of the middlewares ...
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
