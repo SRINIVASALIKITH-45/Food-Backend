@@ -53,7 +53,11 @@ const sendWelcomeEmail = async (customerEmail, customerName) => {
     console.log(`[EMAIL COMPLETED] Welcome email sent to ${customerEmail}`);
     return true;
   } catch (error) {
-    console.error('[EMAIL ERROR] Failed to send Welcome email:', error);
+    console.error('[EMAIL ERROR] Failed to send Welcome email:', {
+      error: error.message,
+      code: error.code,
+      command: error.command
+    });
     return false;
   }
 };
@@ -96,7 +100,11 @@ const sendOrderPendingEmail = async (customerEmail, customerName, orderId, order
     console.log(`[EMAIL COMPLETED] Pending email sent to ${customerEmail}`);
     return true;
   } catch (error) {
-    console.error('[EMAIL ERROR] Failed to send Pending email:', error);
+    console.error('[EMAIL ERROR] Failed to send Pending email:', {
+      error: error.message,
+      code: error.code,
+      command: error.command
+    });
     return false;
   }
 };
@@ -138,7 +146,11 @@ const sendOrderAcceptedEmail = async (customerEmail, customerName, orderId, tota
     console.log(`[EMAIL COMPLETED] Accepted email sent to ${customerEmail}`);
     return true;
   } catch (error) {
-    console.error('[EMAIL ERROR] Failed to send Accepted email:', error);
+    console.error('[EMAIL ERROR] Failed to send Accepted email:', {
+      error: error.message,
+      code: error.code,
+      command: error.command
+    });
     return false;
   }
 };
@@ -183,7 +195,11 @@ const sendOutForDeliveryEmail = async (customerEmail, customerName, orderId, dri
     console.log(`[EMAIL COMPLETED] Out for Delivery email sent to ${customerEmail}`);
     return true;
   } catch (error) {
-    console.error('[EMAIL ERROR] Failed to send Out for Delivery email:', error);
+    console.error('[EMAIL ERROR] Failed to send Out for Delivery email:', {
+      error: error.message,
+      code: error.code,
+      command: error.command
+    });
     return false;
   }
 };
@@ -224,7 +240,11 @@ const sendDeliveryOTPEmail = async (customerEmail, customerName, deliveryOTP, dr
     console.log(`[EMAIL COMPLETED] Delivery OTP email sent to ${customerEmail}`);
     return true;
   } catch (error) {
-    console.error('[EMAIL ERROR] Failed to send Delivery OTP email:', error);
+    console.error('[EMAIL ERROR] Failed to send Delivery OTP email:', {
+      error: error.message,
+      code: error.code,
+      command: error.command
+    });
     return false;
   }
 };
@@ -264,7 +284,11 @@ const sendOrderDeliveredEmail = async (customerEmail, customerName, orderId, tot
     console.log(`[EMAIL COMPLETED] Delivered email sent to ${customerEmail}`);
     return true;
   } catch (error) {
-    console.error('[EMAIL ERROR] Failed to send Delivered email:', error);
+    console.error('[EMAIL ERROR] Failed to send Delivered email:', {
+      error: error.message,
+      code: error.code,
+      command: error.command
+    });
     return false;
   }
 };
