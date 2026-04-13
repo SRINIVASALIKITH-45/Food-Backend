@@ -2,12 +2,14 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: false,
+  port: process.env.SMTP_PORT || 465,
+  secure: true, // true for port 465, false for 587
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
+  logger: true, // Print SMTP conversation logs for debugging
+  debug: true,  // Print debug info
 });
 
 const fromEmail = "Tirupati Hub Spot <likithmangapuram@gmail.com>";
