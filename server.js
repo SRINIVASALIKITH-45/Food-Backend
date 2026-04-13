@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
     });
 });
 
-// CORS Options
+// CORS Optionsav
 const corsOptions = {
     origin: [
         'http://localhost:5173',
