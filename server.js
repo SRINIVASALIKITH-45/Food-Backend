@@ -30,20 +30,26 @@ io.on('connection', (socket) => {
     });
 });
 
-// Middlewares
-// WITH THIS
-app.use(cors({
+// CORS Options
+const corsOptions = {
     origin: [
         'http://localhost:5173',
         'https://week789654.vercel.app',
         'https://week-bsah.vercel.app',
-        'https://week-hm1x-hr9rmj9h7-likithmangapuram-gmailcoms-projects.vercel.app'
+        'https://week-hm1x.vercel.app',
+        'https://week-hm1x-hr9rmj9h7-likithmangapuram-gmailcoms-projects.vercel.app',
+        'https://week789654-pjg5m2knz-likithmangapuram-gmailcoms-projects.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization']
-}));
-// ... rest of the middlewares ...
+};
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
+
+// Middlewares
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
